@@ -3,6 +3,8 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.font as tkFont
+import os
+
 
 class MatrixCalculator:
     def __init__(self, root):
@@ -11,10 +13,12 @@ class MatrixCalculator:
         self.root.geometry("520x665")
         self.root.resizable(False, False)
 
-        self.logo = PhotoImage(file=r"C:\Users\Mariel De Silva\OneDrive\Documents\Final Project - Advance Computer Programming\Images\icon_photo.png")
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+        self.logo = PhotoImage(file=os.path.join(BASE_DIR, "Images", "icon_photo.png"))
         self.root.iconphoto(True, self.logo)
 
-        image_path = r"C:\Users\Mariel De Silva\OneDrive\Documents\Final Project - Advance Computer Programming\Images\background_photo.png"
+        image_path = os.path.join(BASE_DIR, "Images", "background_photo.png")
         self.bg_image = Image.open(image_path).resize((520, 665))
         self.bg_photo = ImageTk.PhotoImage(self.bg_image)
 
